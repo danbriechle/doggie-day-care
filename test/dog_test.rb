@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/dog'
 
-class dogTest < Minitest::Test
+class DogTest < Minitest::Test
 
   def test_it_has_attributes
     dog = Dog.new("Comet", "German Shepherd")
@@ -21,7 +21,7 @@ class dogTest < Minitest::Test
   def test_it_is_unfed_by_default
     dog = Dog.new("Lassie", "Collie")
 
-    assert_equal false, dog.fed? 
+    assert_equal false, dog.fed?
   end
 
   def test_dog_can_be_fed
