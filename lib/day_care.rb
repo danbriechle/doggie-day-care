@@ -1,11 +1,12 @@
 require 'pry'
 require './lib/dog.rb'
 class Day_Care
-  attr_reader :customers
+  attr_reader :customers, :charge
 
   def initialize(day_care_name)
     @day_care_name = day_care_name
     @customers = []
+    @charge ={}
   end
   def add_customer(customer)
     @customers << customer
@@ -32,5 +33,14 @@ class Day_Care
       un_fed_dog.flatten.compact
   end
 
-
+  def charge_customer
+    customer = @customers.map do |person|
+      person.dogs.map do |dog|
+        person if dog.fed? == true
+        end
+      end
+    customer_to_charge = customer.flatten.compact
+    @charge[customer_to_charge] = 5
+    @charge
+  end
 end
